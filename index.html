@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            var gifs = [
+                'gifs/1.gif',
+                'gifs/2.gif',
+                'gifs/3.gif',
+                'gifs/4.gif',
+                'gifs/5.gif',
+                'gifs/6.gif',
+                'gifs/7.gif',
+                'gifs/8.gif',
+                'gifs/9.gif',
+                'gifs/10.gif',
+                'gifs/11.gif',
+                'gifs/12.gif',
+                'gifs/13.gif',
+                'gifs/14.gif',
+                'gifs/15.gif',
+                'gifs/16.gif',
+                'gifs/17.gif'
+            ];
+
+            var gifs_dj = [
+                'gifs_dj/gif_dj1.gif',
+                'gifs_dj/gif_dj2.gif',
+                'gifs_dj/gif_dj3.gif',
+                'gifs_dj/gif_dj4.gif'
+            ];
+
+            var myGif = document.getElementById('myGif');
+            counter = 0;
+
+            setInterval(
+                function() {
+                    counter++;
+                    if (counter % 4 == 0) {
+                        var random = Math.floor((Math.random() * 4));
+                        myGif.src = gifs_dj[random];
+                    } else {
+                        var random = Math.floor((Math.random() * 17));
+                        myGif.src = gifs[random];
+                    }
+                },
+                60000 /* 10000 ms = 10 sec */
+            );
+
+        });
+    </script>
+    <style>
+        body {
+            background-color: black;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .imgbox {
+            display: grid;
+            height: 100vh;
+        }
+        
+        .center-fit {
+            height: 100%;
+            margin: auto;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="imgbox">
+        <img id="myGif" class="center-fit" src="gifs/1.gif">
+    </div>
+</body>
+
+</html>
